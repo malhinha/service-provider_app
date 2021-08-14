@@ -1,6 +1,6 @@
 class Test {
 	main = () => {
-		console.log('....');
+		console.log('where does this get called?');
 	};
 }
 // test
