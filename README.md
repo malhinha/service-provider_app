@@ -21,4 +21,4 @@ There will be three models:
 This app is built on the MERN stack utilizing the Bootstrap css library.
 
 ## User stories
-[__Trello Board__] (https://trello.com/b/1CFxEmf2/unit-3-final)
+[Trello Board] (https://trello.com/b/1CFxEmf2/unit-3-final)
