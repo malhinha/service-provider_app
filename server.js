@@ -7,6 +7,7 @@ const mongoose = require('mongoose');
 const path = require('path');
 
 const clientController = require('./controllers/clients.js');
+const serviceController = require('./controllers/services.js');
 
 const MONGODB_URI = process.env.MONGODB_URI
 const db = mongoose.connection;
@@ -27,6 +28,7 @@ if (process.env.NODE_ENV !== 'development'){
 
 /* Controllers*/
 app.use('/api/clients', clientController);
+app.use('/api/services', serviceController);
 
 
 //LISTENER
