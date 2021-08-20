@@ -7,7 +7,7 @@ const router = require('express').Router()
 router.post('/', async(req, res) => {
   try {
     const createdJob = await Job.create(req.body);
-    const updatedClient = Client.findByIdAndUpdate(req.body.client, {$addToSet: { jobs: createdJob._id }}, {new: true});
+    // const updatedClient = Client.findByIdAndUpdate(req.body.client, {$addToSet: { jobs: createdJob._id }}, {new: true});
     res.status(200).json(createdJob);
   } catch (error) {
     console.error(error);
