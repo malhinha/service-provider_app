@@ -96,7 +96,7 @@ router.get('/', async(req, res) => {
 router.get('/:id', async(req, res) => {
   try {
     const foundJob = await Job.findById(req.params.id);
-    res.status(200).json(foundSJob);
+    res.status(200).json(foundJob);
   } catch (error) {
     console.error(error);
     res.status(400).json({message: error.message});

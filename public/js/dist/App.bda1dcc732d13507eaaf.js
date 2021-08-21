@@ -155,6 +155,45 @@
 /************************************************************************/
 /******/ ({
 
+/***/ "./src/components/AddJob.js":
+/*!**********************************!*\
+  !*** ./src/components/AddJob.js ***!
+  \**********************************/
+/*! exports provided: default */
+/*! exports used: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+eval("/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, \"a\", function() { return AddJob; });\n/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ \"./node_modules/react/index.js\");\n/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);\n\nfunction AddJob() {\n  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(\"div\", null, \"This is the Add Job component\");\n}\n\n//# sourceURL=webpack:///./src/components/AddJob.js?");
+
+/***/ }),
+
+/***/ "./src/components/ClientName.js":
+/*!**************************************!*\
+  !*** ./src/components/ClientName.js ***!
+  \**************************************/
+/*! exports provided: default */
+/*! exports used: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+eval("/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, \"a\", function() { return ClientName; });\n/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ \"./node_modules/react/index.js\");\n/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);\nfunction asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { Promise.resolve(value).then(_next, _throw); } }\n\nfunction _asyncToGenerator(fn) { return function () { var self = this, args = arguments; return new Promise(function (resolve, reject) { var gen = fn.apply(self, args); function _next(value) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, \"next\", value); } function _throw(err) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, \"throw\", err); } _next(undefined); }); }; }\n\n\nfunction ClientName(_ref) {\n  let {\n    id\n  } = _ref;\n  // set Job state\n  const [client, setClient] = Object(react__WEBPACK_IMPORTED_MODULE_0__[\"useState\"])({}); // fetch & display\n\n  Object(react__WEBPACK_IMPORTED_MODULE_0__[\"useEffect\"])(() => {\n    _asyncToGenerator(function* () {\n      try {\n        const response = yield fetch(\"/api/clients/\".concat(id));\n        const data = yield response.json();\n        setClient(data);\n      } catch (error) {\n        console.error(error);\n      }\n    })();\n  }, []);\n  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react__WEBPACK_IMPORTED_MODULE_0___default.a.Fragment, null, \"** \", client.name, \" **\");\n}\n\n//# sourceURL=webpack:///./src/components/ClientName.js?");
+
+/***/ }),
+
+/***/ "./src/components/JobsMiniList.js":
+/*!****************************************!*\
+  !*** ./src/components/JobsMiniList.js ***!
+  \****************************************/
+/*! exports provided: default */
+/*! exports used: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+eval("/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, \"a\", function() { return JobsMiniList; });\n/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ \"./node_modules/react/index.js\");\n/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);\n/* harmony import */ var _components_ServiceName__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../components/ServiceName */ \"./src/components/ServiceName.js\");\n/* harmony import */ var _components_PetName__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../components/PetName */ \"./src/components/PetName.js\");\n/* harmony import */ var _components_ClientName__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../components/ClientName */ \"./src/components/ClientName.js\");\nfunction asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { Promise.resolve(value).then(_next, _throw); } }\n\nfunction _asyncToGenerator(fn) { return function () { var self = this, args = arguments; return new Promise(function (resolve, reject) { var gen = fn.apply(self, args); function _next(value) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, \"next\", value); } function _throw(err) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, \"throw\", err); } _next(undefined); }); }; }\n\n\n\n\n\nfunction JobsMiniList() {\n  // Set Jobs state\n  const [jobs, setJobs] = Object(react__WEBPACK_IMPORTED_MODULE_0__[\"useState\"])([]); // load Jobs API into state\n\n  Object(react__WEBPACK_IMPORTED_MODULE_0__[\"useEffect\"])(() => {\n    _asyncToGenerator(function* () {\n      try {\n        const response = yield fetch('/api/jobs');\n        const data = yield response.json(); //sort jobs by date, descending\n\n        const resortedData = data.sort(function (a, b) {\n          if (a.updatedAt > b.updatedAt) return -1;\n          if (a.updatedAt < b.updatedAt) return 1;\n          return 0;\n        });\n        setJobs(resortedData);\n      } catch (error) {\n        console.error(error);\n      }\n    })();\n  }, []);\n  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react__WEBPACK_IMPORTED_MODULE_0___default.a.Fragment, null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(\"table\", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(\"tbody\", null, jobs.map((job, i) => {\n    return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(\"tr\", {\n      key: job._id\n    }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(\"td\", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_components_ServiceName__WEBPACK_IMPORTED_MODULE_1__[/* default */ \"a\"], {\n      id: job.service\n    })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(\"td\", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_components_PetName__WEBPACK_IMPORTED_MODULE_2__[/* default */ \"a\"], {\n      id: job.client\n    })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(\"td\", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_components_ClientName__WEBPACK_IMPORTED_MODULE_3__[/* default */ \"a\"], {\n      id: job.client\n    })));\n  }))));\n}\n\n//# sourceURL=webpack:///./src/components/JobsMiniList.js?");
+
+/***/ }),
+
 /***/ "./src/components/NavBar.js":
 /*!**********************************!*\
   !*** ./src/components/NavBar.js ***!
@@ -165,6 +204,32 @@
 
 "use strict";
 eval("/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ \"./node_modules/react/index.js\");\n/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);\n/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-router-dom */ \"./node_modules/react-router-dom/esm/react-router-dom.js\");\n\n\n\nconst NavBar = props => {\n  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(\"nav\", {\n    className: \"NavBar\"\n  }, props.routes.map(_ref => {\n    let {\n      key,\n      path\n    } = _ref;\n    return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__[/* Link */ \"b\"], {\n      key: key,\n      to: path\n    }, key);\n  }));\n};\n\n/* harmony default export */ __webpack_exports__[\"a\"] = (NavBar);\n\n//# sourceURL=webpack:///./src/components/NavBar.js?");
+
+/***/ }),
+
+/***/ "./src/components/PetName.js":
+/*!***********************************!*\
+  !*** ./src/components/PetName.js ***!
+  \***********************************/
+/*! exports provided: default */
+/*! exports used: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+eval("/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, \"a\", function() { return PetName; });\n/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ \"./node_modules/react/index.js\");\n/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);\nfunction asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { Promise.resolve(value).then(_next, _throw); } }\n\nfunction _asyncToGenerator(fn) { return function () { var self = this, args = arguments; return new Promise(function (resolve, reject) { var gen = fn.apply(self, args); function _next(value) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, \"next\", value); } function _throw(err) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, \"throw\", err); } _next(undefined); }); }; }\n\n\nfunction PetName(_ref) {\n  let {\n    id\n  } = _ref;\n  // set Job state\n  const [client, setClient] = Object(react__WEBPACK_IMPORTED_MODULE_0__[\"useState\"])({}); // fetch & display\n\n  Object(react__WEBPACK_IMPORTED_MODULE_0__[\"useEffect\"])(() => {\n    _asyncToGenerator(function* () {\n      try {\n        const response = yield fetch(\"/api/clients/\".concat(id));\n        const data = yield response.json();\n        setClient(data);\n      } catch (error) {\n        console.error(error);\n      }\n    })();\n  }, []);\n  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react__WEBPACK_IMPORTED_MODULE_0___default.a.Fragment, null, \"** \", client.pets, \" **\");\n}\n\n//# sourceURL=webpack:///./src/components/PetName.js?");
+
+/***/ }),
+
+/***/ "./src/components/ServiceName.js":
+/*!***************************************!*\
+  !*** ./src/components/ServiceName.js ***!
+  \***************************************/
+/*! exports provided: default */
+/*! exports used: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+eval("/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, \"a\", function() { return ServiceName; });\n/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ \"./node_modules/react/index.js\");\n/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);\nfunction asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { Promise.resolve(value).then(_next, _throw); } }\n\nfunction _asyncToGenerator(fn) { return function () { var self = this, args = arguments; return new Promise(function (resolve, reject) { var gen = fn.apply(self, args); function _next(value) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, \"next\", value); } function _throw(err) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, \"throw\", err); } _next(undefined); }); }; }\n\n\nfunction ServiceName(_ref) {\n  let {\n    id\n  } = _ref;\n  // set Job state\n  const [service, setService] = Object(react__WEBPACK_IMPORTED_MODULE_0__[\"useState\"])({}); // fetch & display\n\n  Object(react__WEBPACK_IMPORTED_MODULE_0__[\"useEffect\"])(() => {\n    _asyncToGenerator(function* () {\n      try {\n        const response = yield fetch(\"/api/services/\".concat(id));\n        const data = yield response.json();\n        setService(data);\n      } catch (error) {\n        console.error(error);\n      }\n    })();\n  }, []);\n  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react__WEBPACK_IMPORTED_MODULE_0___default.a.Fragment, null, \"** \", service.title, \" **\");\n}\n\n//# sourceURL=webpack:///./src/components/ServiceName.js?");
 
 /***/ }),
 
@@ -203,7 +268,7 @@ eval("/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, 
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-eval("/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, \"a\", function() { return Home; });\n/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ \"./node_modules/react/index.js\");\n/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);\n\nfunction Home(props) {\n  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react__WEBPACK_IMPORTED_MODULE_0___default.a.Fragment, null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(AddJob, null), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(JobsListMini, null));\n}\n\n//# sourceURL=webpack:///./src/pages/Home.js?");
+eval("/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, \"a\", function() { return Home; });\n/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ \"./node_modules/react/index.js\");\n/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);\n/* harmony import */ var _components_AddJob__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../components/AddJob */ \"./src/components/AddJob.js\");\n/* harmony import */ var _components_JobsMiniList__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../components/JobsMiniList */ \"./src/components/JobsMiniList.js\");\n\n\n\nfunction Home(props) {\n  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react__WEBPACK_IMPORTED_MODULE_0___default.a.Fragment, null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_components_AddJob__WEBPACK_IMPORTED_MODULE_1__[/* default */ \"a\"], null), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_components_JobsMiniList__WEBPACK_IMPORTED_MODULE_2__[/* default */ \"a\"], null));\n}\n\n//# sourceURL=webpack:///./src/pages/Home.js?");
 
 /***/ }),
 
@@ -268,7 +333,7 @@ eval("/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_re
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-eval("/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ \"./node_modules/react/index.js\");\n/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);\n/* harmony import */ var _pages_Home__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../pages/Home */ \"./src/pages/Home.js\");\n/* harmony import */ var _pages_Clients__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../pages/Clients */ \"./src/pages/Clients.js\");\n/* harmony import */ var _pages_Jobs__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../pages/Jobs */ \"./src/pages/Jobs.js\");\n/* harmony import */ var _pages_Invoices__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../pages/Invoices */ \"./src/pages/Invoices.js\");\n/* harmony import */ var _pages_Settings__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../pages/Settings */ \"./src/pages/Settings.js\");\n\n\n\n\n\n\nconst routes = [{\n  Component: _pages_Clients__WEBPACK_IMPORTED_MODULE_2__[/* default */ \"a\"],\n  key: 'Clients',\n  path: '/clients'\n}, {\n  Component: _pages_Settings__WEBPACK_IMPORTED_MODULE_5__[/* default */ \"a\"],\n  key: 'Settings',\n  path: '/settings'\n}, {\n  Component: _pages_Invoices__WEBPACK_IMPORTED_MODULE_4__[/* default */ \"a\"],\n  key: 'Invoices',\n  path: '/invoices'\n}, {\n  Component: _pages_Jobs__WEBPACK_IMPORTED_MODULE_3__[/* default */ \"a\"],\n  key: 'Jobs',\n  path: '/jobs'\n}, {\n  Component: _pages_Home__WEBPACK_IMPORTED_MODULE_1__[/* default */ \"a\"],\n  key: 'Home',\n  path: '/'\n}];\n/* harmony default export */ __webpack_exports__[\"a\"] = (routes);\n\n//# sourceURL=webpack:///./src/router/routes.js?");
+eval("/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ \"./node_modules/react/index.js\");\n/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);\n/* harmony import */ var _pages_Home__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../pages/Home */ \"./src/pages/Home.js\");\n/* harmony import */ var _pages_Clients__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../pages/Clients */ \"./src/pages/Clients.js\");\n/* harmony import */ var _pages_Jobs__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../pages/Jobs */ \"./src/pages/Jobs.js\");\n/* harmony import */ var _pages_Invoices__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../pages/Invoices */ \"./src/pages/Invoices.js\");\n/* harmony import */ var _pages_Settings__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../pages/Settings */ \"./src/pages/Settings.js\");\n\n\n\n\n\n\nconst routes = [{\n  Component: _pages_Settings__WEBPACK_IMPORTED_MODULE_5__[/* default */ \"a\"],\n  key: 'Settings',\n  path: '/settings'\n}, {\n  Component: _pages_Invoices__WEBPACK_IMPORTED_MODULE_4__[/* default */ \"a\"],\n  key: 'Invoices',\n  path: '/invoices'\n}, {\n  Component: _pages_Clients__WEBPACK_IMPORTED_MODULE_2__[/* default */ \"a\"],\n  key: 'Clients',\n  path: '/clients'\n}, {\n  Component: _pages_Jobs__WEBPACK_IMPORTED_MODULE_3__[/* default */ \"a\"],\n  key: 'Jobs',\n  path: '/jobs'\n}, {\n  Component: _pages_Home__WEBPACK_IMPORTED_MODULE_1__[/* default */ \"a\"],\n  key: 'Home',\n  path: '/'\n}];\n/* harmony default export */ __webpack_exports__[\"a\"] = (routes);\n\n//# sourceURL=webpack:///./src/router/routes.js?");
 
 /***/ })
 

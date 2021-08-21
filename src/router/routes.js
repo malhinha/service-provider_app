@@ -7,11 +7,6 @@ import Settings from '../pages/Settings';
 
 const routes = [
 	{
-		Component: Clients,
-		key: 'Clients',
-		path: '/clients'
-	},
-	{
 		Component: Settings,
 		key: 'Settings',
 		path: '/settings'
@@ -20,6 +15,11 @@ const routes = [
 		Component: Invoices,
 		key: 'Invoices',
 		path: '/invoices'
+	},
+	{
+		Component: Clients,
+		key: 'Clients',
+		path: '/clients'
 	},
 	{
 		Component: Jobs,
