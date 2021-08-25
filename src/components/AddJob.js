@@ -57,10 +57,13 @@ export default function AddJob() {
 				},
 				body: JSON.stringify({
 					client: clientSelection.current.value,
-					service: serviceSelection.current.value
+					service: serviceSelection.current.value,
+					charge: price
 				})
 			});
 			const jobsData = await response.json();
+
+			console.log(price, typeof price);
 
 			setJobs(jobsData);
 		} catch (error) {
