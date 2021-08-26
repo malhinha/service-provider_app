@@ -3,7 +3,7 @@ import React, { useState, useEffect } from 'react';
 import ServiceName from '../components/ServiceName';
 import PetName from '../components/PetName';
 import ClientName from '../components/ClientName';
-import JobDate from '../components/JobDate';
+import SimpleDateDisplay from '../components/SimpleDateDisplay';
 
 export default function Jobs(props) {
 	// Set Jobs state
@@ -48,7 +48,7 @@ export default function Jobs(props) {
 						return (
 							<tr key={job._id}>
 								<td>
-									<JobDate date={job.createdAt} />
+									<SimpleDateDisplay date={job.createdAt} />
 								</td>
 								<td>
 									<ServiceName id={job.service} />

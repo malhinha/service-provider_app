@@ -1,6 +1,6 @@
 import React, { Fragment } from 'react';
 
-export default function JobDate({ date }) {
+export default function SimpleDateDisplay({ date }) {
 	// months array
 	const monthsList = [
 		'JAN',
