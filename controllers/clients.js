@@ -40,6 +40,19 @@ router.get('/:id', async(req, res) => {
 })
 
 
+/***** UPDATE: Delete single job *****/
+
+router.delete('/:id/:jobId', async(req, res) => {
+  try {
+    const updatedClient = await Client.updateOne( {_id: req.params.id}, { $pullAll: {jobs: [req.params.jobId] } } )
+    res.status(200).json(updatedClient)
+  } catch (error) {
+    console.error(error);
+    res.status(400).json({message: error.message});
+  }
+})
+
+
 /***** UPDATE *****/
 
 router.put('/:id', async(req, res) => {

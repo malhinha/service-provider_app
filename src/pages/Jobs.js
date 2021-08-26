@@ -29,6 +29,33 @@ export default function Jobs(props) {
 		})();
 	}, []);
 
+	// delete job
+	const handleDelete = async e => {
+		try {
+			// remove job record from client jobs array
+			const responseClient = await fetch(
+				`/api/jobs/${e.target.client}/${e.target.job}`,
+				{
+					method: 'DELETE',
+					headers: {
+						'Content-Type': 'application/json'
+					}
+				}
+			);
+			const updatedClient = await responseClient.json();
+			// remove entire job document from job db
+			const responseJob = await fetch(`/api/jobs/${e.target.job}`, {
+				method: 'DELETE',
+				headers: {
+					'Content-Type': 'application/json'
+				}
+			});
+			const deletedJob = await responseJob.json();
+		} catch (error) {
+			console.error(error);
+		}
+	};
+
 	return (
 		<>
 			<h1>Jobs</h1>
@@ -62,7 +89,13 @@ export default function Jobs(props) {
 								<td>{job.charge}</td>
 								<td>
 									<button>Edit</button>
-									<button>Delete</button>
+									<button
+										job={job._id}
+										client={job.client}
+										onClick={handleDelete}
+									>
+										Delete
+									</button>
 								</td>
 							</tr>
 						);
