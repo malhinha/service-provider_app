@@ -31,10 +31,13 @@ export default function Jobs(props) {
 
 	// delete job
 	const handleDelete = async e => {
+		console.log(`client id: ${e.target.dataset.client}`);
+		console.log(`job id: ${e.target.dataset.job}`);
+
 		try {
 			// remove job record from client jobs array
 			const responseClient = await fetch(
-				`/api/jobs/${e.target.client}/${e.target.job}`,
+				`/api/clients/${e.target.dataset.client}/${e.target.dataset.job}`,
 				{
 					method: 'DELETE',
 					headers: {
@@ -44,7 +47,7 @@ export default function Jobs(props) {
 			);
 			const updatedClient = await responseClient.json();
 			// remove entire job document from job db
-			const responseJob = await fetch(`/api/jobs/${e.target.job}`, {
+			const responseJob = await fetch(`/api/jobs/${e.target.dataset.job}`, {
 				method: 'DELETE',
 				headers: {
 					'Content-Type': 'application/json'
@@ -90,8 +93,8 @@ export default function Jobs(props) {
 								<td>
 									<button>Edit</button>
 									<button
-										job={job._id}
-										client={job.client}
+										data-job={job._id}
+										data-client={job.client}
 										onClick={handleDelete}
 									>
 										Delete
