@@ -3,10 +3,10 @@ import React, { useState, useEffect } from 'react';
 import SimpleDateDisplay from '../components/SimpleDateDisplay';
 
 export default function Clients(props) {
-	// Set Jobs state
+	// Set Clients state
 	const [clients, setClients] = useState([]);
 
-	// load Jobs API into state
+	// load Clients API into state
 	useEffect(() => {
 		(async () => {
 			try {
@@ -25,6 +25,23 @@ export default function Clients(props) {
 			}
 		})();
 	}, []);
+
+	// delete client
+	const handleDelete = async e => {
+		console.log(`client id: ${e.target.dataset.client}`);
+
+		try {
+			const response = await fetch(`/api/clients/${e.target.dataset.client}`, {
+				method: 'DELETE',
+				headers: {
+					'Content-Type': 'application/json'
+				}
+			});
+			const deletedClient = await response.json();
+		} catch (error) {
+			console.error(error);
+		}
+	};
 
 	return (
 		<>
@@ -51,7 +68,9 @@ export default function Clients(props) {
 								</td>
 								<td>
 									<button>Edit</button>
-									<button>Delete</button>
+									<button data-client={client._id} onClick={handleDelete}>
+										Delete
+									</button>
 								</td>
 							</tr>
 						);
