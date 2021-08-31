@@ -7,7 +7,7 @@ const AppRouter = () => {
 	return (
 		<Router>
 			<div className="container-sm bg-white p-0">
-				<div className="row" id="main-container">
+				<div className="row test-black" id="main-container">
 					<NavBar routes={routes.reverse()} />
 					<Switch>
 						{routes.map(({ Component, key, path }) => (

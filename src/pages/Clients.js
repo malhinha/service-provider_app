@@ -67,9 +67,15 @@ export default function Clients(props) {
 										<td>
 											<SimpleDateDisplay date={client.updatedAt} />
 										</td>
-										<td>
-											<button>Edit</button>
-											<button data-client={client._id} onClick={handleDelete}>
+										<td align="right">
+											<button className="btn btn-outline-primary btn-sm mr-1">
+												Edit
+											</button>
+											<button
+												className="btn btn-outline-primary btn-sm"
+												data-client={client._id}
+												onClick={handleDelete}
+											>
 												Delete
 											</button>
 										</td>

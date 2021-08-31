@@ -62,7 +62,7 @@ export default function Jobs(props) {
 
 	return (
 		<>
-			<div className="col p-5">
+			<div className="col p-5" height="100%">
 				<PageTitle title={props.page} />
 				<main className="d-flex flex-row justify-content-between">
 					<table className="table table-sm">
@@ -93,9 +93,12 @@ export default function Jobs(props) {
 											<ClientName id={job.client} />
 										</td>
 										<td>{job.charge}</td>
-										<td>
-											<button>Edit</button>
+										<td align="right">
+											<button className="btn btn-outline-primary btn-sm mr-1">
+												Edit
+											</button>
 											<button
+												className="btn btn-outline-primary btn-sm"
 												data-job={job._id}
 												data-client={job.client}
 												onClick={handleDelete}
