@@ -19,3 +19,14 @@ body {
 .navigation {
   font-weight: 400;
 }
+
+#main-container {
+  height: 80vh;
+}
+
+// test classes
+.test-black {
+  border-width: thin;
+  border-style: dotted;
+  border-color: red;
+}
