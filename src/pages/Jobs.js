@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 
+import PageTitle from '../components/PageTitle';
 import ServiceName from '../components/ServiceName';
 import PetName from '../components/PetName';
 import ClientName from '../components/ClientName';
@@ -61,50 +62,54 @@ export default function Jobs(props) {
 
 	return (
 		<>
-			<h1>Jobs</h1>
-			<table>
-				<thead>
-					<tr>
-						<th>Date</th>
-						<th>Service</th>
-						<th>Pets</th>
-						<th>Client</th>
-						<th>Charge</th>
-						<th></th>
-					</tr>
-				</thead>
-				<tbody>
-					{jobs.map((job, i) => {
-						return (
-							<tr key={job._id}>
-								<td>
-									<SimpleDateDisplay date={job.createdAt} />
-								</td>
-								<td>
-									<ServiceName id={job.service} />
-								</td>
-								<td>
-									<PetName id={job.client} />
-								</td>
-								<td>
-									<ClientName id={job.client} />
-								</td>
-								<td>{job.charge}</td>
-								<td>
-									<button>Edit</button>
-									<button
-										data-job={job._id}
-										data-client={job.client}
-										onClick={handleDelete}
-									>
-										Delete
-									</button>
-								</td>
+			<div className="col p-5">
+				<PageTitle title={props.page} />
+				<main className="d-flex flex-row justify-content-between">
+					<table>
+						<thead>
+							<tr>
+								<th>Date</th>
+								<th>Service</th>
+								<th>Pets</th>
+								<th>Client</th>
+								<th>Charge</th>
+								<th></th>
 							</tr>
-						);
-					})}
-				</tbody>
-			</table>
+						</thead>
+						<tbody>
+							{jobs.map((job, i) => {
+								return (
+									<tr key={job._id}>
+										<td>
+											<SimpleDateDisplay date={job.createdAt} />
+										</td>
+										<td>
+											<ServiceName id={job.service} />
+										</td>
+										<td>
+											<PetName id={job.client} />
+										</td>
+										<td>
+											<ClientName id={job.client} />
+										</td>
+										<td>{job.charge}</td>
+										<td>
+											<button>Edit</button>
+											<button
+												data-job={job._id}
+												data-client={job.client}
+												onClick={handleDelete}
+											>
+												Delete
+											</button>
+										</td>
+									</tr>
+								);
+							})}
+						</tbody>
+					</table>
+				</main>
+			</div>
 		</>
 	);
 }

@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 
+import PageTitle from '../components/PageTitle';
 import SimpleDateDisplay from '../components/SimpleDateDisplay';
 
 export default function Clients(props) {
@@ -28,8 +29,6 @@ export default function Clients(props) {
 
 	// delete client
 	const handleDelete = async e => {
-		console.log(`client id: ${e.target.dataset.client}`);
-
 		try {
 			const response = await fetch(`/api/clients/${e.target.dataset.client}`, {
 				method: 'DELETE',
@@ -45,38 +44,42 @@ export default function Clients(props) {
 
 	return (
 		<>
-			<h1>Clients</h1>
-			<table>
-				<thead>
-					<tr>
-						<th>Name</th>
-						<th>Number</th>
-						<th>Pets</th>
-						<th>Last Servive</th>
-						<th></th>
-					</tr>
-				</thead>
-				<tbody>
-					{clients.map((client, i) => {
-						return (
-							<tr key={client._id}>
-								<td>{client.name}</td>
-								<td>{client.number}</td>
-								<td>{client.pets}</td>
-								<td>
-									<SimpleDateDisplay date={client.updatedAt} />
-								</td>
-								<td>
-									<button>Edit</button>
-									<button data-client={client._id} onClick={handleDelete}>
-										Delete
-									</button>
-								</td>
+			<div className="col p-5">
+				<PageTitle title={props.page} />
+				<main className="d-flex flex-row justify-content-between">
+					<table>
+						<thead>
+							<tr>
+								<th>Name</th>
+								<th>Number</th>
+								<th>Pets</th>
+								<th>Last Servive</th>
+								<th></th>
 							</tr>
-						);
-					})}
-				</tbody>
-			</table>
+						</thead>
+						<tbody>
+							{clients.map((client, i) => {
+								return (
+									<tr key={client._id}>
+										<td>{client.name}</td>
+										<td>{client.number}</td>
+										<td>{client.pets}</td>
+										<td>
+											<SimpleDateDisplay date={client.updatedAt} />
+										</td>
+										<td>
+											<button>Edit</button>
+											<button data-client={client._id} onClick={handleDelete}>
+												Delete
+											</button>
+										</td>
+									</tr>
+								);
+							})}
+						</tbody>
+					</table>
+				</main>
+			</div>
 		</>
 	);
 }

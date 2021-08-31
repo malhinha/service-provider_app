@@ -6,17 +6,21 @@ import routes from './routes';
 const AppRouter = () => {
 	return (
 		<Router>
-			<NavBar routes={routes.reverse()} />
-			<Switch>
-				{routes.map(({ Component, key, path }) => (
-					<Route
-						key={key}
-						path={path}
-						exact
-						component={() => <Component page={key} />}
-					></Route>
-				))}
-			</Switch>
+			<div className="container-sm bg-white p-0">
+				<div className="row">
+					<NavBar routes={routes.reverse()} />
+					<Switch>
+						{routes.map(({ Component, key, path }) => (
+							<Route
+								key={key}
+								path={path}
+								exact
+								component={() => <Component page={key} />}
+							></Route>
+						))}
+					</Switch>
+				</div>
+			</div>
 		</Router>
 	);
 };

@@ -40,7 +40,7 @@ router.get('/:id', async(req, res) => {
 })
 
 
-/***** UPDATE: Delete single job *****/
+/***** UPDATE: Remove single job *****/
 
 router.delete('/:id/:jobId', async(req, res) => {
   try {

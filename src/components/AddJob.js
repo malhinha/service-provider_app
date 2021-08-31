@@ -97,43 +97,37 @@ export default function AddJob() {
 	};
 
 	return (
-		<>
-			<form onSubmit={handleSubmit}>
-				<label>Client:</label>
-				<select name="client" ref={clientSelection} onChange={onClientChange}>
-					<option></option>
-					{clients.map((client, i) => {
-						return (
-							<option key={client._id} value={client._id}>
-								{client.name}
-							</option>
-						);
-					})}
-				</select>
-				<br />
-				<label>Pets:</label>
-				{pets}
-				<br />
-				<label>Service:</label>
-				<select
-					name="service"
-					ref={serviceSelection}
-					onChange={onServiceChange}
-				>
-					<option></option>
-					{services.map((service, i) => {
-						return (
-							<option key={service._id} value={service._id}>
-								{service.title}
-							</option>
-						);
-					})}
-				</select>
-				<br />
-				<label>Cost:</label>${price}
-				<br />
-				<input type="submit" value="Save" />
-			</form>
-		</>
+		<form onSubmit={handleSubmit}>
+			<label>Client:</label>
+			<select name="client" ref={clientSelection} onChange={onClientChange}>
+				<option></option>
+				{clients.map((client, i) => {
+					return (
+						<option key={client._id} value={client._id}>
+							{client.name}
+						</option>
+					);
+				})}
+			</select>
+			<br />
+			<label>Pets:</label>
+			{pets}
+			<br />
+			<label>Service:</label>
+			<select name="service" ref={serviceSelection} onChange={onServiceChange}>
+				<option></option>
+				{services.map((service, i) => {
+					return (
+						<option key={service._id} value={service._id}>
+							{service.title}
+						</option>
+					);
+				})}
+			</select>
+			<br />
+			<label>Cost:</label>${price}
+			<br />
+			<input type="submit" value="Save" />
+		</form>
 	);
 }

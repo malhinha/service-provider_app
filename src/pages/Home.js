@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 
+import PageTitle from '../components/PageTitle';
 import AddJob from '../components/AddJob';
 import JobsMiniList from '../components/JobsMiniList';
 
@@ -29,8 +30,13 @@ export default function Home(props) {
 
 	return (
 		<>
-			<AddJob jobs={jobs} />
-			<JobsMiniList jobs={jobs} />
+			<div className="col p-5">
+				<PageTitle title={props.page} />
+				<main className="d-flex flex-row justify-content-between">
+					<AddJob jobs={jobs} />
+					<JobsMiniList jobs={jobs} />
+				</main>
+			</div>
 		</>
 	);
 }

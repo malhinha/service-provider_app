@@ -28,7 +28,7 @@ const routes = [
 	},
 	{
 		Component: Home,
-		key: 'Home',
+		key: 'Dashboard',
 		path: '/'
 	}
 ];

@@ -29,26 +29,24 @@ export default function JobsMiniList({ jobs }) {
 	// }, []);
 
 	return (
-		<>
-			<table>
-				<tbody>
-					{jobs.map((job, i) => {
-						return (
-							<tr key={job._id}>
-								<td>
-									<ServiceName id={job.service} />
-								</td>
-								<td>
-									<PetName id={job.client} />
-								</td>
-								<td>
-									<ClientName id={job.client} />
-								</td>
-							</tr>
-						);
-					})}
-				</tbody>
-			</table>
-		</>
+		<table>
+			<tbody>
+				{jobs.map((job, i) => {
+					return (
+						<tr key={job._id}>
+							<td>
+								<ServiceName id={job.service} />
+							</td>
+							<td>
+								<PetName id={job.client} />
+							</td>
+							<td>
+								<ClientName id={job.client} />
+							</td>
+						</tr>
+					);
+				})}
+			</tbody>
+		</table>
 	);
 }
