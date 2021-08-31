@@ -71,7 +71,7 @@ export default function AddJob() {
 		}
 	};
 
-	//
+	// display price per service selection
 	const onServiceChange = e => {
 		(async () => {
 			try {
@@ -84,6 +84,7 @@ export default function AddJob() {
 		})();
 	};
 
+	// display pets per client selection
 	const onClientChange = e => {
 		(async () => {
 			try {
@@ -98,50 +99,94 @@ export default function AddJob() {
 
 	return (
 		<>
-			<div className="test-black flex-fill mr-1">
+			<div className="flex-fill mr-1">
+				<h4 className="mb-4">Save a New Job</h4>
 				<form onSubmit={handleSubmit}>
-					<label>Client:</label>
-					<select
-						name="client"
-						className="form-control"
-						ref={clientSelection}
-						onChange={onClientChange}
-					>
-						<option></option>
-						{clients.map((client, i) => {
-							return (
-								<option key={client._id} value={client._id}>
-									{client.name}
-								</option>
-							);
-						})}
-					</select>
-					<br />
-					<label>Pets:</label>
-					{pets}
-					<br />
-					<label>Service:</label>
-					<select
-						name="service"
-						className="form-control"
-						ref={serviceSelection}
-						onChange={onServiceChange}
-					>
-						<option></option>
-						{services.map((service, i) => {
-							return (
-								<option key={service._id} value={service._id}>
-									{service.title}
-								</option>
-							);
-						})}
-					</select>
-					<br />
-					<label>Cost: </label>${price}
-					<br />
-					<button type="submit" className="btn btn-primary">
-						Save
-					</button>
+					{/* select client */}
+					<div className="form-group row">
+						<label className="col-sm-2 col-form-label">Client:</label>
+						<div className="col-sm-6">
+							<select
+								name="client"
+								className="form-control"
+								width="100%"
+								ref={clientSelection}
+								onChange={onClientChange}
+							>
+								<option></option>
+								{clients.map((client, i) => {
+									return (
+										<option key={client._id} value={client._id}>
+											{client.name}
+										</option>
+									);
+								})}
+							</select>
+						</div>
+					</div>
+
+					{/* display client pets (uneditable) */}
+					<div className="form-group row">
+						<label className="col-sm-2 col-form-label">Pets:</label>
+						<div className="col-sm-6">
+							<input
+								type="text"
+								readonly
+								className="form-control"
+								id="staticEmail"
+								value={pets}
+							/>
+						</div>
+					</div>
+
+					{/* select service */}
+					<div className="form-group row">
+						<label className="col-sm-2 col-form-label">Service:</label>
+						<div className="col-sm-6">
+							<select
+								name="service"
+								className="form-control"
+								ref={serviceSelection}
+								onChange={onServiceChange}
+							>
+								<option></option>
+								{services.map((service, i) => {
+									return (
+										<option key={service._id} value={service._id}>
+											{service.title}
+										</option>
+									);
+								})}
+							</select>
+						</div>
+					</div>
+
+					{/* display cost (service * # of pets) */}
+					<div className="form-group row">
+						<label className="col-sm-2 col-form-label">Cost: </label>
+						<div className="col-sm-6 input-group">
+							<div className="input-group-prepend">
+								<div className="input-group-text">$</div>
+							</div>
+							<input
+								type="text"
+								readonly
+								className="form-control"
+								id="staticEmail"
+								value={price}
+							/>
+						</div>
+					</div>
+
+					{/* save button */}
+					<div className="form-group row">
+						<div className="col-sm-2"></div>
+						<div className="col-sm-6">
+							<button type="submit" className="btn btn-primary btn-block">
+								Save
+							</button>
+						</div>
+					</div>
 				</form>
 			</div>
 		</>
