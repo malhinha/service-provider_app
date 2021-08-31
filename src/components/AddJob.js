@@ -131,7 +131,7 @@ export default function AddJob() {
 						<div className="col-sm-6">
 							<input
 								type="text"
-								readonly
+								readOnly
 								className="form-control"
 								id="staticEmail"
 								value={pets}
@@ -170,7 +170,7 @@ export default function AddJob() {
 							</div>
 							<input
 								type="text"
-								readonly
+								readOnly
 								className="form-control"
 								id="staticEmail"
 								value={price}
