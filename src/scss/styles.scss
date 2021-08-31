@@ -20,6 +20,10 @@ body {
   font-weight: 400;
 }
 
+.navigation:hover {
+  background-color: rgba(50, 120, 185, .1);
+}
+
 #main-container {
   height: 80vh;
 }
