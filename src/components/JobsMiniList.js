@@ -30,7 +30,7 @@ export default function JobsMiniList({ jobs }) {
 
 	return (
 		<>
-			<div className="test-red flex-fill ml-1 pl-3">
+			<div className="flex-fill ml-1 pl-3">
 				<h4>Recent Jobs</h4>
 				<table className="table table-sm">
 					<tbody>
