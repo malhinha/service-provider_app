@@ -101,7 +101,12 @@ export default function AddJob() {
 			<div className="test-black flex-fill mr-1">
 				<form onSubmit={handleSubmit}>
 					<label>Client:</label>
-					<select name="client" ref={clientSelection} onChange={onClientChange}>
+					<select
+						name="client"
+						className="form-control"
+						ref={clientSelection}
+						onChange={onClientChange}
+					>
 						<option></option>
 						{clients.map((client, i) => {
 							return (
@@ -118,6 +123,7 @@ export default function AddJob() {
 					<label>Service:</label>
 					<select
 						name="service"
+						className="form-control"
 						ref={serviceSelection}
 						onChange={onServiceChange}
 					>
@@ -131,9 +137,11 @@ export default function AddJob() {
 						})}
 					</select>
 					<br />
-					<label>Cost:</label>${price}
+					<label>Cost: </label>${price}
 					<br />
-					<input type="submit" value="Save" />
+					<button type="submit" className="btn btn-primary">
+						Save
+					</button>
 				</form>
 			</div>
 		</>

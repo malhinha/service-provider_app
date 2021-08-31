@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 
 import ServiceName from '../components/ServiceName';
 import PetName from '../components/PetName';
-import ClientName from '../components/ClientName';
+import SimpleDateDisplay from '../components/SimpleDateDisplay';
 
 export default function JobsMiniList({ jobs }) {
 	// // Set Jobs state
@@ -31,19 +31,20 @@ export default function JobsMiniList({ jobs }) {
 	return (
 		<>
 			<div className="test-red flex-fill ml-1 pl-3">
+				<h4>Recent Jobs</h4>
 				<table className="table table-sm">
 					<tbody>
 						{jobs.map((job, i) => {
 							return (
-								<tr key={job._id} className="row">
+								<tr key={job._id}>
 									<td>
-										<ServiceName id={job.service} />
+										<SimpleDateDisplay date={job.createdAt} />
 									</td>
 									<td>
 										<PetName id={job.client} />
 									</td>
 									<td>
-										<ClientName id={job.client} />
+										<ServiceName id={job.service} />
 									</td>
 								</tr>
 							);

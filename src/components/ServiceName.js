@@ -17,5 +17,5 @@ export default function ServiceName({ id }) {
 		})();
 	}, []);
 
-	return <>** {service.title} **</>;
+	return <>{service.title}</>;
 }

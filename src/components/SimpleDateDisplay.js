@@ -17,10 +17,11 @@ export default function SimpleDateDisplay({ date }) {
 		'DEC'
 	];
 
-	const year = parseInt(`${date}`.slice(2, 4), 10);
+	// const year = parseInt(`${date}`.slice(2, 4), 10);
 	const month = monthsList[parseInt(`${date}`.slice(5, 7), 10) - 1];
 	const day = parseInt(`${date}`.slice(8, 10), 10);
-	const shortDate = `${day} ${month} ${year}`;
+	// const shortDate = `${day} ${month} ${year}`;
+	const shortDate = `${month}-${day} `;
 
 	return <>{shortDate}</>;
 }

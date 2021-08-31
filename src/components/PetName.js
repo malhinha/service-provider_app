@@ -17,5 +17,5 @@ export default function PetName({ id }) {
 		})();
 	}, []);
 
-	return <>** {client.pets} **</>;
+	return <>{client.pets}</>;
 }

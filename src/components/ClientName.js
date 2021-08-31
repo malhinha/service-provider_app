@@ -17,5 +17,5 @@ export default function ClientName({ id }) {
 		})();
 	}, []);
 
-	return <>** {client.name} **</>;
+	return <>{client.name}</>;
 }
