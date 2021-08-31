@@ -47,7 +47,7 @@ export default function Clients(props) {
 			<div className="col p-5">
 				<PageTitle title={props.page} />
 				<main className="d-flex flex-row justify-content-between">
-					<table>
+					<table className="table table-sm">
 						<thead>
 							<tr>
 								<th>Name</th>
